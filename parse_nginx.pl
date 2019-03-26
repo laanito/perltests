@@ -57,7 +57,7 @@ my $grammar = do {
 	
 	<rule: file> (<[topblock]> <[comment]>*)+ $
 	<rule: topblock>
-		<server> | <upstream> | <http> | <events>
+		<server> | <upstream> | <http> | <events> | <line>
 	
 	<rule: upstream>
 		( (upstream) | <[comment]>+ (upstream) ) <name=word> <block>
@@ -78,14 +78,14 @@ my $grammar = do {
 	<rule: line>
 		( 
 		        	<comment> 	<type='comment'>
-			  | <rewrite> 	<type='rewrite'>
-			  | <if>			<type='if'>
-			  | <location>	<type='location'>
+				| <rewrite> 	<type='rewrite'>
+				| <if>			<type='if'>
+				| <location>	<type='location'>
 			  | <server>		<type='server'>
 			  | <http>	<type='http'>
 			  | <events>	<type='events'>
 			  | <directive>	<type='directive'>
-			  | <ignoreline>
+			 
 		)
 
 	<rule: comment>
@@ -115,7 +115,6 @@ my $grammar = do {
 
 	<rule: word>	\$?\w+
 
-	<token: ignoreline>	.*\n
 	@xs;
 };
 

@@ -1,0 +1,520 @@
+  info | Processing the main regex before any rule definitions
+       |    |
+       |    |...Treating <file> as:
+       |    |      |  match the subrule <file> 
+       |    |       \ saving the match in $MATCH{'file'}
+       |    |
+       |     \___End of main regex
+       | 
+       | Defining a rule: <file>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating <[topblock]> as:
+       |    |      |  match the subrule <topblock> 
+       |    |       \ appending the match to $MATCH{'topblock'}
+       |    |
+       |    |...Treating <[comment]>* as:
+       |    |      |  match the subrule <comment> any number of times
+       |    |       \ appending each match to $MATCH{'comment'}
+       |    |
+       |    |...Treating '+' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '$' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <topblock>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating <server> as:
+       |    |      |  match the subrule <server> 
+       |    |       \ saving the match in $MATCH{'server'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <upstream> as:
+       |    |      |  match the subrule <upstream> 
+       |    |       \ saving the match in $MATCH{'upstream'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <http> as:
+       |    |      |  match the subrule <http> 
+       |    |       \ saving the match in $MATCH{'http'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <events> as:
+       |    |      |  match the subrule <events> 
+       |    |       \ saving the match in $MATCH{'events'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <line> as:
+       |    |      |  match the subrule <line> 
+       |    |       \ saving the match in $MATCH{'line'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <upstream>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '(upstream)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <[comment]>+ as:
+       |    |      |  match the subrule <comment> once or more
+       |    |       \ appending each match to $MATCH{'comment'}
+       |    |
+       |    |...Treating '(upstream)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <name=word> as:
+       |    |      |  match the subrule <word> 
+       |    |       \ saving the match in $MATCH{'name'}
+       |    |
+       |    |...Treating <block> as:
+       |    |      |  match the subrule <block> 
+       |    |       \ saving the match in $MATCH{'block'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <server>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '(server)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <[comment]>+ as:
+       |    |      |  match the subrule <comment> once or more
+       |    |       \ appending each match to $MATCH{'comment'}
+       |    |
+       |    |...Treating '(server)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <block> as:
+       |    |      |  match the subrule <block> 
+       |    |       \ saving the match in $MATCH{'block'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <http>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '(http)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <[comment]>+ as:
+       |    |      |  match the subrule <comment> once or more
+       |    |       \ appending each match to $MATCH{'comment'}
+       |    |
+       |    |...Treating '(http)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <block> as:
+       |    |      |  match the subrule <block> 
+       |    |       \ saving the match in $MATCH{'block'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <events>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '(events)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <[comment]>+ as:
+       |    |      |  match the subrule <comment> once or more
+       |    |       \ appending each match to $MATCH{'comment'}
+       |    |
+       |    |...Treating '(events)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <block> as:
+       |    |      |  match the subrule <block> 
+       |    |       \ saving the match in $MATCH{'block'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <block>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '\{' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <[line]>* as:
+       |    |      |  match the subrule <line> any number of times
+       |    |       \ appending each match to $MATCH{'line'}
+       |    |
+       |    |...Treating '(;)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <[line]>* ** (;) as:
+       |    |      |  repeatedly match the subrule <[line]>*
+       |    |       \ as long as the matches are separated by matches of (;)
+       | 
+       |    |
+       |    |...Treating '\}' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <line>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating <comment> as:
+       |    |      |  match the subrule <comment> 
+       |    |       \ saving the match in $MATCH{'comment'}
+       |    |
+       |    |...Treating <type='comment'> as:
+       |    |      |  execute the code block {'comment'} 
+       |    |       \ saving the result in $MATCH{'type'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <rewrite> as:
+       |    |      |  match the subrule <rewrite> 
+       |    |       \ saving the match in $MATCH{'rewrite'}
+       |    |
+       |    |...Treating <type='rewrite'> as:
+       |    |      |  execute the code block {'rewrite'} 
+       |    |       \ saving the result in $MATCH{'type'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <if> as:
+       |    |      |  match the subrule <if> 
+       |    |       \ saving the match in $MATCH{'if'}
+       |    |
+       |    |...Treating <type='if'> as:
+       |    |      |  execute the code block {'if'} 
+       |    |       \ saving the result in $MATCH{'type'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <location> as:
+       |    |      |  match the subrule <location> 
+       |    |       \ saving the match in $MATCH{'location'}
+       |    |
+       |    |...Treating <type='location'> as:
+       |    |      |  execute the code block {'location'} 
+       |    |       \ saving the result in $MATCH{'type'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <server> as:
+       |    |      |  match the subrule <server> 
+       |    |       \ saving the match in $MATCH{'server'}
+       |    |
+       |    |...Treating <type='server'> as:
+       |    |      |  execute the code block {'server'} 
+       |    |       \ saving the result in $MATCH{'type'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <http> as:
+       |    |      |  match the subrule <http> 
+       |    |       \ saving the match in $MATCH{'http'}
+       |    |
+       |    |...Treating <type='http'> as:
+       |    |      |  execute the code block {'http'} 
+       |    |       \ saving the result in $MATCH{'type'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <events> as:
+       |    |      |  match the subrule <events> 
+       |    |       \ saving the match in $MATCH{'events'}
+       |    |
+       |    |...Treating <type='events'> as:
+       |    |      |  execute the code block {'events'} 
+       |    |       \ saving the result in $MATCH{'type'}
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <directive> as:
+       |    |      |  match the subrule <directive> 
+       |    |       \ saving the match in $MATCH{'directive'}
+       |    |
+       |    |...Treating <type='directive'> as:
+       |    |      |  execute the code block {'directive'} 
+       |    |       \ saving the result in $MATCH{'type'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <comment>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '\#+' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '([^\n]*)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '(?:\n)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <directive>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating <command=word> as:
+       |    |      |  match the subrule <word> 
+       |    |       \ saving the match in $MATCH{'command'}
+       |    |
+       |    |...Treating <[arg]>* as:
+       |    |      |  match the subrule <arg> any number of times
+       |    |       \ appending each match to $MATCH{'arg'}
+       |    |
+       |    |...Treating <.ws> as:
+       |    |      |  match the subrule <ws> 
+       |    |       \ but don't save anything
+       |    |
+       |    |...Treating <[arg]>* ** <.ws> as:
+       |    |      |  repeatedly match the subrule <[arg]>*
+       |    |       \ as long as the matches are separated by matches of <.ws>
+       | 
+       |    |
+       |    |...Treating '(;)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '([ \t]*)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <comment>? as:
+       |    |      |  match the subrule <comment> if possible
+       |    |       \ saving any match in $MATCH{'comment'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <if>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '(if)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <[comment]>+ as:
+       |    |      |  match the subrule <comment> once or more
+       |    |       \ appending each match to $MATCH{'comment'}
+       |    |
+       |    |...Treating '(if)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\(' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <condition> as:
+       |    |      |  match the subrule <condition> 
+       |    |       \ saving the match in $MATCH{'condition'}
+       |    |
+       |    |...Treating '\)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <block> as:
+       |    |      |  match the subrule <block> 
+       |    |       \ saving the match in $MATCH{'block'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <location>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '(location)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <[comment]>+ as:
+       |    |      |  match the subrule <comment> once or more
+       |    |       \ appending each match to $MATCH{'comment'}
+       |    |
+       |    |...Treating '(location)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating <op=cop>? as:
+       |    |      |  match the subrule <cop> if possible
+       |    |       \ saving any match in $MATCH{'op'}
+       |    |
+       |    |...Treating <where=locarg> as:
+       |    |      |  match the subrule <locarg> 
+       |    |       \ saving the match in $MATCH{'where'}
+       |    |
+       |    |...Treating <block> as:
+       |    |      |  match the subrule <block> 
+       |    |       \ saving the match in $MATCH{'block'}
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <rewrite>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '(rewrite)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '(.+?)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\n' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <condition>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating <[opd]> as:
+       |    |      |  match the subrule <opd> 
+       |    |       \ appending the match to $MATCH{'opd'}
+       |    |
+       |    |...Treating <[cop]> as:
+       |    |      |  match the subrule <cop> 
+       |    |       \ appending the match to $MATCH{'cop'}
+       |    |
+       |    |...Treating <[opd]> as:
+       |    |      |  match the subrule <opd> 
+       |    |       \ appending the match to $MATCH{'opd'}
+       |    |
+       |    |...Treating '?' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '+' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <opd>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '(\!? \-? \$? \w+)' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <cop>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '\|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\&' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\&' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '!=' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '==?' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\<' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\<?' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '?' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '=~' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\+' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '-' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '|' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '~' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <locarg>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '[^{\s]+?' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a token: <arg>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '[a-zA-Z0-9_\$/\.:+*\\^(){}\[\]=\'\"-]+' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
+       | Defining a rule: <word>
+       |    |...Returns: a hash
+       |    |
+       |    |...Treating '\$?' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |    |...Treating '\w+' as:
+       |    |       \ normal Perl regex syntax
+       |    |
+       |     \___End of rule definition
+       | 
