@@ -13,7 +13,7 @@ sub getResponse {
 
 	my $path = $_[0];	
 	my $ua = new LWP::UserAgent;
-	$ua->agent("hcat/1.0");
+	$ua->agent("Mozilla/5.0");
 	my $request = new HTTP::Request("GET", $path);
 	my $response = $ua->request($request);
 	return $response;
